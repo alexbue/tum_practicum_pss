@@ -1,0 +1,22 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+- caption: Handling von Audio-Dateien
+  chapters:
+  - file: 1_1_Lesen
+  - file: 1_2_Schreiben
+  - file: 1_3_Recording
+- caption: Synthese, Verarbeitung, Analyse
+  chapters:
+  - file: 2_1_Signalerzeugung
+  - file: 2_2_Signalverarbeitung
+  - file: 2_3_Signalanalyse
+- caption: Aufgaben
+  chapters:
+  - file: 3_1_Vorbereitungsfragen
+  - file: 3_2_Aufgaben
+  - file: markdown
+  - file: notebooks
