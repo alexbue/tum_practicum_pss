@@ -1,0 +1,517 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.2 Speichern von Audio-Dateien &#8212; Praktikum System-und Schaltungstechnik WS 21/22</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1.3 Audio direkt in das Jupyter Notebook aufnehmen" href="1_3_Recording.html" />
+    <link rel="prev" title="1.1 Lesen von Audio-Dateien" href="1_1_Lesen.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/tum.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Praktikum System-und Schaltungstechnik WS 21/22</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Versuchsaufbau
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Handling von Audio-Dateien
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_1_Lesen.html">
+   1.1 Lesen von Audio-Dateien
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1.2 Speichern von Audio-Dateien
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_3_Recording.html">
+   1.3 Audio direkt in das Jupyter Notebook aufnehmen
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Synthese, Verarbeitung, Analyse
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_1_Signalerzeugung.html">
+   2.1 Signalerzeugung
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_2_Signalverarbeitung.html">
+   2.2  Signalverarbeitung
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_3_Signalanalyse.html">
+   2.3 Signalanalyse
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Aufgaben
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_1_Vorbereitungsfragen.html">
+   3.1 Vorbereitungsfragen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_2_Aufgaben.html">
+   3.2 Aufgaben
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/1_2_Schreiben.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F1_2_Schreiben.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/_build/html/1_2_Schreiben.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#benotigte-packages">
+   Benötigte Packages
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#meta-daten-auslesen">
+     Meta-Daten auslesen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prazision-subtypes">
+     Präzision / Subtypes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#bit-festkommazahlen-fixed-points">
+       16-bit Festkommazahlen (fixed points)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#verwendung-von-anderen-subtypes">
+       Verwendung von anderen Subtypes
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#uberprufung">
+       Überprüfung
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#alle-moglichen-subtypes">
+       Alle möglichen Subtypes
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="speichern-von-audio-dateien">
+<h1>1.2 Speichern von Audio-Dateien<a class="headerlink" href="#speichern-von-audio-dateien" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="benotigte-packages">
+<h2>Benötigte Packages<a class="headerlink" href="#benotigte-packages" title="Permalink to this headline">¶</a></h2>
+<p>Wir verwenden auch zum Schreiben von Sounddateien das <a class="reference external" href="http://github.com/bastibe/SoundFile">pysoundfile</a> package. Dokumentation auf <a class="reference external" href="http://pysoundfile.readthedocs.org">http://pysoundfile.readthedocs.org</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> <span class="c1"># for faster operations with floating point numbers</span>
+<span class="kn">import</span> <span class="nn">soundfile</span> <span class="k">as</span> <span class="nn">sf</span>  <span class="c1"># for writing/reading soundfiles</span>
+<span class="kn">import</span> <span class="nn">librosa</span> <span class="k">as</span> <span class="nn">lr</span> <span class="c1"># for writing/reading soundfiles</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Audio-Daten zu speichern ist genauso einfach wie sie zu lesen. Dazu benutzen wir die Funktion <a class="reference external" href="http://pysoundfile.readthedocs.org/#soundfile.write">sf.write()</a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">audio_signal</span><span class="p">,</span> <span class="n">samplerate</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;files/file.wav&#39;</span><span class="p">)</span>
+<span class="n">sf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;files/audio_file_16bit_fixed.wav&#39;</span><span class="p">,</span> <span class="n">audio_signal</span><span class="p">,</span> <span class="n">samplerate</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="meta-daten-auslesen">
+<h3>Meta-Daten auslesen<a class="headerlink" href="#meta-daten-auslesen" title="Permalink to this headline">¶</a></h3>
+<p>Um zu Testen ob beim Konvertieren und Speichern alles geklappt hat, können wir uns die Meta-Daten auslesen lassen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>sndfile-info files/audio_file_16bit_fixed.wav
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>========================================
+File : files/audio_file_16bit_fixed.wav
+Length : 230444
+RIFF : 230436
+WAVE
+fmt  : 16
+  Format        : 0x1 =&gt; WAVE_FORMAT_PCM
+  Channels      : 1
+  Sample Rate   : 48000
+  Block Align   : 2
+  Bit Width     : 16
+  Bytes/sec     : 96000
+data : 230400
+End
+
+----------------------------------------
+Sample Rate : 48000
+Frames      : 115200
+Channels    : 1
+Format      : 0x00010002
+Sections    : 1
+Seekable    : TRUE
+Duration    : 00:00:02.400
+Signal Max  : 16109 (-6.17 dB)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="prazision-subtypes">
+<h3>Präzision / Subtypes<a class="headerlink" href="#prazision-subtypes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="bit-festkommazahlen-fixed-points">
+<h4>16-bit Festkommazahlen (fixed points)<a class="headerlink" href="#bit-festkommazahlen-fixed-points" title="Permalink to this headline">¶</a></h4>
+<p>Standardmäßig werden die .wav Dateien als 16-bit Festkommazahlen (a.k.a. <code class="docutils literal notranslate"><span class="pre">'PCM_16'</span></code>) geschrieben.
+Die jeweiligen Standardeinstellung für jedes Dateiformat lassen sich hier nachschlagen <a class="reference external" href="http://pysoundfile.readthedocs.org/#soundfile.default_subtype">sf.default_subtype()</a>. </br></p>
+<p>Wir können den Standard-Subtype für die unterschiedlichen Dateiformate (hier ‘WAV’) auch direkt im Code überprüfen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sf</span><span class="o">.</span><span class="n">default_subtype</span><span class="p">(</span><span class="s1">&#39;WAV&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;PCM_16&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="verwendung-von-anderen-subtypes">
+<h4>Verwendung von anderen Subtypes<a class="headerlink" href="#verwendung-von-anderen-subtypes" title="Permalink to this headline">¶</a></h4>
+<p>Wenn wir unsere Audio-Dateien mit einer grösseren Präzision (numerischer Genauigkeit) speichern wollen, können wir sie zum Beispiel auch als 32-bit-Fliesskommazahlen (‘FLOAT’) speichern.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;files/audio_file_32bit_float.wav&#39;</span><span class="p">,</span> <span class="n">audio_signal</span><span class="p">,</span> <span class="n">samplerate</span><span class="p">,</span> <span class="n">subtype</span><span class="o">=</span><span class="s1">&#39;FLOAT&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="uberprufung">
+<h4>Überprüfung<a class="headerlink" href="#uberprufung" title="Permalink to this headline">¶</a></h4>
+<p>Überprüfen wir kurz, ob das funktioniert hat und lesen dazu nochmal die Metadaten aus:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>sndfile-info audio_file_32bit_float.wav
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error : Not able to open input file audio_file_32bit_float.wav.
+File : audio_file_32bit_float.wav
+
+System error : No such file or directory.
+</pre></div>
+</div>
+</div>
+</div>
+<p>In der letzten Ausgabe sehen wir unter ‘Format’, dass die Audio-Datei korrekt mit Fliesskommazahlen (‘IEEE_FLOAT’) und mit Bit-Größe (‘Bit Width’) 32-bit gespeichert wurde.</p>
+</div>
+<div class="section" id="alle-moglichen-subtypes">
+<h4>Alle möglichen Subtypes<a class="headerlink" href="#alle-moglichen-subtypes" title="Permalink to this headline">¶</a></h4>
+<p>Wir können uns alle möglichen Subtypes der jeweiligen Dateiformate (hier im Beispiel ‘WAV’) ausgeben lassen, mit denen wir explizit die numerische Genauigkeit und damit auch die Qualität unserer gespeicherten Audio-Daten bestimmen können:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sf</span><span class="o">.</span><span class="n">available_subtypes</span><span class="p">(</span><span class="s1">&#39;WAV&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;PCM_16&#39;: &#39;Signed 16 bit PCM&#39;,
+ &#39;PCM_24&#39;: &#39;Signed 24 bit PCM&#39;,
+ &#39;PCM_32&#39;: &#39;Signed 32 bit PCM&#39;,
+ &#39;PCM_U8&#39;: &#39;Unsigned 8 bit PCM&#39;,
+ &#39;FLOAT&#39;: &#39;32 bit float&#39;,
+ &#39;DOUBLE&#39;: &#39;64 bit float&#39;,
+ &#39;ULAW&#39;: &#39;U-Law&#39;,
+ &#39;ALAW&#39;: &#39;A-Law&#39;,
+ &#39;IMA_ADPCM&#39;: &#39;IMA ADPCM&#39;,
+ &#39;MS_ADPCM&#39;: &#39;Microsoft ADPCM&#39;,
+ &#39;GSM610&#39;: &#39;GSM 6.10&#39;,
+ &#39;G721_32&#39;: &#39;32kbs G721 ADPCM&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p></br></br>
+<a class="reference internal" href="1_1_Lesen.html"><span class="doc std std-doc">zurück: 1.1 Lesen von Audio-Dateien</span></a> | <a class="reference internal" href="1_3_Recording.html"><span class="doc std std-doc">vor: 1.3 Audio direkt in das Jupyter Notebook aufnehmen</span></a></p>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="1_1_Lesen.html" title="previous page">1.1 Lesen von Audio-Dateien</a>
+    <a class='right-next' id="next-link" href="1_3_Recording.html" title="next page">1.3 Audio direkt in das Jupyter Notebook aufnehmen</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Alexander Bünger | alxbue@googlemail.com<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
